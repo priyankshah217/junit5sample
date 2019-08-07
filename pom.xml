@@ -37,7 +37,17 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
                 <configuration>
-                    <groups><![CDATA[E2E & Regression]]></groups>
+                    <reportFormat>brief</reportFormat>
+                    <includes>
+                        <include>**/*Test*.java</include>
+                    </includes>
+                    <properties>
+                        <configurationParameters>
+                            junit.jupiter.execution.parallel.enabled = true
+                            junit.jupiter.execution.parallel.mode.default = concurrent
+                            junit.jupiter.execution.parallel.mode.classes.default = concurrent
+                        </configurationParameters>
+                    </properties>
                 </configuration>
             </plugin>
         </plugins>
